@@ -95,7 +95,13 @@ overlap is:
 - Copy a link
 - Right-click actions on sidebar session and workspace rows
 
-If all you need is "open the file", the built-in row is enough.
+Plain text paths inside a message are a different story: the shell renders
+them as **preview** links — left-click opens the right-hand preview panel —
+so "open this with an external application" has no built-in entry point there.
+That is exactly what this plugin's *Open* item supplies.
+
+So the produced-files row is the only genuinely duplicated surface; everywhere
+else the two complement each other.
 
 ## Known limitations
 
