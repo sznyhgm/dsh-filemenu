@@ -1,0 +1,7 @@
+# DshFileMenu — composition patch inserted by `dsh plugin --profile <name> add dsh-filemenu`.
+# The row mounts the package as a loader entry: the Host half (package main →
+# lib/index.js) runs, and the Client half (exports["./client"] → lib/client.js)
+# is served to the web shell through the package's dsh.client declaration.
+- insert:
+    - id: dsh-filemenu
+      name: dsh-filemenu
