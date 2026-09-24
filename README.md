@@ -76,6 +76,27 @@ Two official DSH seams do the actual work:
   seam that `dsh-host-open-in-app` itself uses. `cwd` is a required field of
   `SubprocessSpawnSpec`.
 
+## Relationship to the built-in file UI
+
+DSH already renders a produced-files row at the end of a turn
+(`@deepseek-ai/dsh-client-ui-deliverables`): left-clicking a chip opens the
+file with the OS default application, and a presented-file card carries a
+chevron menu with **Open** / **Open containing folder**.
+
+This plugin deliberately keeps its own *Open* and *Open containing folder*
+items — they widen the same two actions to paths the built-in row does not
+cover (plain text inside a message, tool rows, code-block chips, sidebar rows)
+and put every action into one right-click menu. What it adds beyond that
+overlap is:
+
+- Copy path / copy relative path
+- Open in a *detected* editor (VS Code, Cursor, …), not just the OS default
+- Open with another program (the Windows Open With dialog)
+- Copy a link
+- Right-click actions on sidebar session and workspace rows
+
+If all you need is "open the file", the built-in row is enough.
+
 ## Known limitations
 
 - **Windows reveal uses `explorer.exe /select,<file-url>`.** If the host runs
